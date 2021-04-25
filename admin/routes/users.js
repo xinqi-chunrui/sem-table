@@ -33,21 +33,22 @@ router.post('/login', (req, res, next) => {
 	})
 });
 
-router.get('/info', function(req, res) {
-  // const decode = decoded(req)
-  console.log(req)
-  // if (decode && decode.username) {
-  //   findUser(decode.username).then(user => {
-  //     if (user) {
-  //       user.roles = [user.role]
-  //       new Result(user, '用户信息查询成功').success(res)
-  //     } else {
-  //       new Result('用户信息查询失败').fail(res)
-  //     }
-  //   })
-  // } else {
-  //   new Result('用户信息查询失败').fail(res)
-  // }
-})
+
+router.get('/info', (req, res, next) => {
+	// const decode = decoded(req)
+	console.log(req.get('Authorization'))
+	// if (decode && decode.username) {
+	//   findUser(decode.username).then(user => {
+	//     if (user) {
+	//       user.roles = [user.role]
+	//       new Result(user, '用户信息查询成功').success(res)
+	//     } else {
+	//       new Result('用户信息查询失败').fail(res)
+	//     }
+	//   })
+	// } else {
+	//   new Result('用户信息查询失败').fail(res)
+	// }
+});
 
 module.exports = router;

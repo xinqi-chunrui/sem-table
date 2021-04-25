@@ -54,6 +54,9 @@ export const constantRoutes = [
 ]
 
 export const asyncRoutes = [
+  { 
+    path: 'sem-table',
+  },
   { path: '*', redirect: '/404', hidden: true }
 ]
 
