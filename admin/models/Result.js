@@ -34,7 +34,7 @@ class Result {
         if (this.options) {
             base = { ...base, ...this.options }
         }
-        console.log(base)
+        // console.log(base)
         return base
     }
 
@@ -44,7 +44,7 @@ class Result {
 
     success(res) {
         this.code = CODE_SUCCESS
-        console.log(res)
+        // console.log(res)
         this.json(res)
     }
 

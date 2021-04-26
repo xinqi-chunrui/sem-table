@@ -3,17 +3,16 @@ import request from '@/utils/request'
 export function login(data) {
   return request({
     // url: '/vue-element-admin/user/login',
-    url: '/users/login',
+    url: '/user/login',
     method: 'post',
     data
   })
 }
 
-export function getInfo(token) {
+export function getInfo() {
   return request({
-    url: '/users/info',
-    method: 'get',
-    params: { token }
+    url: '/user/info',
+    method: 'get'
   })
 }
 

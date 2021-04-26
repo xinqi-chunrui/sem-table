@@ -1,11 +1,11 @@
 const { querySql, queryOne } = require('../db')
 
 function login(username, password) {
-    return querySql(`select * from user_list where name='${username}' and password = '${password}'`)
+    return querySql(`select * from user_list where username='${username}' and password = '${password}'`)
 }
 
 function findUser(username) {
-    return queryOne(`select * from user_list where name='${username}'`)
+    return queryOne(`select id, nickname, username, role from user_list where username='${username}'`)
 }
 
 function findFlowList() {

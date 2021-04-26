@@ -2,7 +2,7 @@ const { log } = require('debug');
 var express = require('express');
 var router = express.Router();
 const Result = require('../models/Result');
-const { findFlowList, insertCity } = require('../services/flow_list')
+const { findFlowList, insertCity } = require('../services/user')
 
 /* GET users listing. */
 router.get('/', (req, res, next) => {

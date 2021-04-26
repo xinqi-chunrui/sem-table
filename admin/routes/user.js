@@ -7,7 +7,7 @@ const jwt = require('jsonwebtoken')
 const {
 	login,
 	findUser
-} = require('../services/flow_list')
+} = require('../services/user')
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
@@ -25,8 +25,8 @@ router.post('/login', (req, res, next) => {
 		} else {
 		  const token = jwt.sign(
 			{ username },
-			PRIVATE_KEY,
-			{ expiresIn: JWT_EXPIRED }
+			PRIVATE_KEY,//传入秘钥
+			{ expiresIn: JWT_EXPIRED }//传入失效时间
 		  )
 		  new Result({ token }, '登录成功').success(res)
 		}
@@ -35,20 +35,19 @@ router.post('/login', (req, res, next) => {
 
 
 router.get('/info', (req, res, next) => {
-	// const decode = decoded(req)
-	console.log(req.get('Authorization'))
-	// if (decode && decode.username) {
-	//   findUser(decode.username).then(user => {
-	//     if (user) {
-	//       user.roles = [user.role]
-	//       new Result(user, '用户信息查询成功').success(res)
-	//     } else {
-	//       new Result('用户信息查询失败').fail(res)
-	//     }
-	//   })
-	// } else {
-	//   new Result('用户信息查询失败').fail(res)
-	// }
+	const decode = decoded(req)
+	if (decode && decode.username) {
+	  findUser(decode.username).then(user => {
+	    if (user) {
+	      user.roles = [user.role]
+	      new Result(user, '用户信息查询成功').success(res)
+	    } else {
+	      new Result('用户信息查询失败').fail(res)
+	    }
+	  })
+	} else {
+	  new Result('用户信息查询失败').fail(res)
+	}
 });
 
 module.exports = router;

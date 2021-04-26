@@ -9,8 +9,8 @@ module.exports = {
   CODE_TOKEN_EXPIRED: -2,
   debug: true,
   PWD_SALT: 'admin_imooc_node',
-  PRIVATE_KEY: 'admin_imooc_node_test_youbaobao_xyz',
-  JWT_EXPIRED: 60 * 60,
+  PRIVATE_KEY: 'admin_imooc_node_test_youbaobao_xyz',//jwt的秘钥
+  JWT_EXPIRED: 60 * 60,//token的失效时间
   UPLOAD_PATH,
   UPLOAD_URL,
   MIME_TYPE_EPUB: 'application/epub+zip'
