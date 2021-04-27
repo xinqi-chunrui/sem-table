@@ -34,7 +34,7 @@ router.post('/login', (req, res, next) => {
 });
 
 
-router.get('/info', (req, res, next) => {
+router.get('/info', (req, res, next) => {		
 	const decode = decoded(req)
 	if (decode && decode.username) {
 	  findUser(decode.username).then(user => {
@@ -49,5 +49,6 @@ router.get('/info', (req, res, next) => {
 	  new Result('用户信息查询失败').fail(res)
 	}
 });
+
 
 module.exports = router;
